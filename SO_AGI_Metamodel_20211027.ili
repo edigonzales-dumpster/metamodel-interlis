@@ -14,19 +14,25 @@ VERSION "2021-10-27"  =
 
   TOPIC Metamodel =
 
-    CLASS Datasource (ABSTRACT) =
-      Id : MANDATORY TEXT*1024;
-    END Datasource;
+    CLASS PostgresTable =
+    END PostgresTable;
 
-    CLASS DatabaseDatasource
-    EXTENDS Datasource =
+    CLASS Store (ABSTRACT) =
+      Id : MANDATORY TEXT*1024;
+    END Store;
+
+    CLASS TableView =
+    END TableView;
+
+    CLASS PostgresStore
+    EXTENDS Store =
       Host : MANDATORY TEXT*1024;
       Port : 1 .. 999999;
       Database : MANDATORY TEXT*1024;
       User : TEXT*1024;
       Password : TEXT*1024;
       Url : MANDATORY TEXT*2048;
-    END DatabaseDatasource;
+    END PostgresStore;
 
   END Metamodel;
 
