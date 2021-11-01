@@ -18,6 +18,12 @@ einzelnen Layer ohne Thema.
 Andere Baustelle:  Wie prüfe ich, ob ein z.B. Attribut vorhanden ist? Diese stecken in ja in den Datenbank. Mit Custom 
 Function wäre ne Variante (und dem schemareader drin).
 
+
+Wie geht man mit Updates um? Falls der Name 'pub' ändert? -> Müsste in der DB passieren und dann
+exportiert werden. Wie geht es beim Schema? v1 -> v2? Mmmh, oder doch sogar einfach lokal im XML?
+
+
+Wie / wo Berechtigungen verwalten?
 -->
 
 <TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3"
