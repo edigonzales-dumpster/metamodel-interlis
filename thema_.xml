@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Basket für replace? mmh, nicht so gut, dann müssen immer alle
+Objekte vorhanden sein. Entspräche dann der Layergruppe im Web GIS Client, nicht im WMS, da flach.
+Das wiederum ist schwierig, weil es noch Facadelayer gibt. -> Ah aber die müssten sinnvollerweise eh irgendwo anders definiert werden.
+Oder mit Dataset? Es ist "einfach" das Thema. So a la "ch.so.arp.nutzungsplanung"
+Was passiert wenn z.b. Edit-Layer noch ins Spiel kommen?
+Es ist wahrschenlich so circa das Schema (im Simi Thema). Achtung: Tabellen können mehrfach publiziert werden als DSV
+Es ist ein Publikations-Thema. Publikation nicht gleichbedeutend mit Pub, sondern was will ich darstellen/bereitstellen als Servcie
+-> Service-Thema?.
+
+Und wie löscht man ein einzelnes DSV? konsequenterweise auch wieder mittels Sercie-Thema.
+
+Oder je dsv ein Basket. Es könnne ja mehrere Baskets im File sein. -> nein. Weil sowieso. Replacen kann man nur ein Dataset.
+D.h. wir müssten definitiv mit mehreren DSV in einer Datei arbeiten, d.h. thematisch gruppieren, dh. es gibt "nie" einen 
+einzelnen Layer ohne Thema.
+
+
+Andere Baustelle:  Wie prüfe ich, ob ein z.B. Attribut vorhanden ist? Diese stecken in ja in den Datenbank. Mit Custom 
+Function wäre ne Variante (und dem schemareader drin).
+
+-->
+<DatasetView TID="ch.so.arp.nutzungsplanung.grundnutzung">
+    <DatabaseSource>pub</DatabaseSource>
+    <DatabaseSchema>arp_nutzungsplanung_pub</DatabaseSchema>   
+    <DatabaseTable>grundnutzung</DatabaseTable>
+    <Title>Grundnutzung</Title>
+    <Fields>
+        <Field> 
+            <Name>Code_kommunal</Name>
+            <Alias>Kommunaler Code</Alias>
+        </Field>
+        <Field> 
+            <Name>Typ_Kt</Name>
+            <Alias>Typ Kanton</Alias>
+        </Field>
+        <Field> 
+            <Name>rechtsstatus</Name>
+            <Alias>Rechtsstatus</Alias>
+        </Field>
+        <Geometry>geometrie</Geometry>
+    </Fields>
+</DatasetView>
+<DatasetView TID="ch.so.arp.nutzungsplanung.sondernutzungsplan">
+    <DatabaseSource>pub</DatabaseSource>
+    <DatabaseSchema>arp_nutzungsplanung_pub</DatabaseSchema>   
+    <DatabaseTable>ueberlagernd_flaeche</DatabaseTable>
+    <Title>Sondernutzungspläne</Title>
+    <Fields>
+        <Field> 
+            <Name>code_kommunal</Name>
+            <Alias>Kommunaler Code</Alias>
+        </Field>
+        <Field> 
+            <Name>typ_kt</Name>
+            <Alias>Typ Kanton</Alias>
+        </Field>
+        <Field> 
+            <Name>Code_kommunal</Name>
+            <Alias>Kommunaler Code</Alias>
+        </Field>
+        <Field>
+            <Name>name_nummer</Name>
+            <Alias>Name / Nummer</Alias>
+        </Field>
+        <Geometry>geometrie</Geometry>
+        <SqlFilter>typ_kt IN ('N611_Perimeter_kommunaler_Gestaltungsplan')</SqlFilter>
+    </Fields>
+</DatasetView>

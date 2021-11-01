@@ -8,51 +8,69 @@ Es ist wahrschenlich so circa das Schema (im Simi Thema). Achtung: Tabellen kön
 Es ist ein Publikations-Thema. Publikation nicht gleichbedeutend mit Pub, sondern was will ich darstellen/bereitstellen als Servcie
 -> Service-Thema?.
 
-Und wie löscht man ein einzelnes DSV? konsequenterweise auch wieder mittels Sercie-Thema.-->
-<DatasetView TID="ch.so.arp.nutzungsplanung.grundnutzung">
-    <DatabaseSource>pub</DatabaseSource>
-    <DatabaseSchema>arp_nutzungsplanung_pub</DatabaseSchema>   
-    <DatabaseTable>grundnutzung</DatabaseTable>
-    <Title>Grundnutzung</Title>
-    <Fields>
-        <Field> 
-            <Name>Code_kommunal</Name>
-            <Alias>Kommunaler Code</Alias>
-        </Field>
-        <Field> 
-            <Name>Typ_Kt</Name>
-            <Alias>Typ Kanton</Alias>
-        </Field>
-        <Field> 
-            <Name>rechtsstatus</Name>
-            <Alias>Rechtsstatus</Alias>
-        </Field>
-        <Geometry>geometrie</Geometry>
-    </Fields>
-</DatasetView>
-<DatasetView TID="ch.so.arp.nutzungsplanung.sondernutzungsplan">
-    <DatabaseSource>pub</DatabaseSource>
-    <DatabaseSchema>arp_nutzungsplanung_pub</DatabaseSchema>   
-    <DatabaseTable>ueberlagernd_flaeche</DatabaseTable>
-    <Title>Sondernutzungspläne</Title>
-    <Fields>
-        <Field> 
-            <Name>code_kommunal</Name>
-            <Alias>Kommunaler Code</Alias>
-        </Field>
-        <Field> 
-            <Name>typ_kt</Name>
-            <Alias>Typ Kanton</Alias>
-        </Field>
-        <Field> 
-            <Name>Code_kommunal</Name>
-            <Alias>Kommunaler Code</Alias>
-        </Field>
-        <Field>
-            <Name>name_nummer</Name>
-            <Alias>Name / Nummer</Alias>
-        </Field>
-        <Geometry>geometrie</Geometry>
-        <SqlFilter>typ_kt IN ('N611_Perimeter_kommunaler_Gestaltungsplan')</SqlFilter>
-    </Fields>
-</DatasetView>
+Und wie löscht man ein einzelnes DSV? konsequenterweise auch wieder mittels Sercie-Thema.
+
+Oder je dsv ein Basket. Es könnne ja mehrere Baskets im File sein. -> nein. Weil sowieso. Replacen kann man nur ein Dataset.
+D.h. wir müssten definitiv mit mehreren DSV in einer Datei arbeiten, d.h. thematisch gruppieren, dh. es gibt "nie" einen 
+einzelnen Layer ohne Thema.
+
+
+Andere Baustelle:  Wie prüfe ich, ob ein z.B. Attribut vorhanden ist? Diese stecken in ja in den Datenbank. Mit Custom 
+Function wäre ne Variante (und dem schemareader drin).
+
+-->
+
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <HEADERSECTION SENDER="sogis" VERSION="2.3">
+    </HEADERSECTION>
+    <DATASECTION>
+        <SO_AGI_Metamodel_20211027.Metamodel BID="ch.so.arp.nutzungsplanung">
+            <SO_AGI_Metamodel_20211027.Metamodel.DatasetView TID="o1">
+                <DatabaseSource>pub</DatabaseSource>
+                <DatabaseSchema>arp_nutzungsplanung_pub</DatabaseSchema>
+                <DatabaseTable>grundnutzung</DatabaseTable>
+                <Title>Grundnutzung</Title>
+                <Name>ch.so.arp.nutzungsplanung.grundnutzung</Name>
+                <Fields>
+                    <SO_AGI_Metamodel_20211027.Metamodel.Field>
+                        <Name>code_kommunal</Name>
+                        <Alias>Kommunaler Code</Alias>
+                    </SO_AGI_Metamodel_20211027.Metamodel.Field>
+                    <SO_AGI_Metamodel_20211027.Metamodel.Field>
+                        <Name>rechtsstatus</Name>
+                        <Alias>Rechtsstatus</Alias>
+                    </SO_AGI_Metamodel_20211027.Metamodel.Field>
+                    <SO_AGI_Metamodel_20211027.Metamodel.Field>
+                        <Name>code_kommunal</Name>
+                        <Alias>Kommunaler Code</Alias>
+                    </SO_AGI_Metamodel_20211027.Metamodel.Field>
+                </Fields>
+                <Geometry>geometrie</Geometry>
+            </SO_AGI_Metamodel_20211027.Metamodel.DatasetView>
+            <SO_AGI_Metamodel_20211027.Metamodel.DatasetView TID="o2">
+                <DatabaseSource>pub</DatabaseSource>
+                <DatabaseSchema>arp_nutzungsplanung_pub</DatabaseSchema>
+                <DatabaseTable>ueberlagernd_flaeche</DatabaseTable>
+                <Title>Sondernutzungspläne</Title>
+                <Name>ch.so.arp.nutzungsplanung.sondernutzungsplaene</Name>
+                <Fields>
+                    <SO_AGI_Metamodel_20211027.Metamodel.Field>
+                        <Name>code_kommunal</Name>
+                        <Alias>Kommunaler Code</Alias>
+                    </SO_AGI_Metamodel_20211027.Metamodel.Field>
+                    <SO_AGI_Metamodel_20211027.Metamodel.Field>
+                        <Name>rechtsstatus</Name>
+                        <Alias>Rechtsstatus</Alias>
+                    </SO_AGI_Metamodel_20211027.Metamodel.Field>
+                    <SO_AGI_Metamodel_20211027.Metamodel.Field>
+                        <Name>name_nummer</Name>
+                        <Alias>Name / Nummer</Alias>
+                    </SO_AGI_Metamodel_20211027.Metamodel.Field>
+                </Fields>
+                <Geometry>geometrie</Geometry>
+            </SO_AGI_Metamodel_20211027.Metamodel.DatasetView>
+        </SO_AGI_Metamodel_20211027.Metamodel>
+    </DATASECTION>
+</TRANSFER>       
+
