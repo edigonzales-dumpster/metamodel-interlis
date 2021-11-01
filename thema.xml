@@ -41,10 +41,6 @@ Function wäre ne Variante (und dem schemareader drin).
                         <Name>rechtsstatus</Name>
                         <Alias>Rechtsstatus</Alias>
                     </SO_AGI_Metamodel_20211027.Metamodel.Field>
-                    <SO_AGI_Metamodel_20211027.Metamodel.Field>
-                        <Name>code_kommunal</Name>
-                        <Alias>Kommunaler Code</Alias>
-                    </SO_AGI_Metamodel_20211027.Metamodel.Field>
                 </Fields>
                 <Geometry>geometrie</Geometry>
             </SO_AGI_Metamodel_20211027.Metamodel.DatasetView>
